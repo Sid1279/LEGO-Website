@@ -3,6 +3,8 @@ import "./header.css"
 import ai from '../../assets/ai.png';
 // import * as THREE from 'three';
 // import { GLTFLoader } from 'three-gltf-loader';
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
 
 const 
 Header = () => {
@@ -30,7 +32,7 @@ Header = () => {
   )
 }
 
-// const LegoModel = () => {
+// const Header = () => {
 //   const containerRef = useRef(null);
 
 //   useEffect(() => {
@@ -42,8 +44,8 @@ Header = () => {
 //     renderer.setSize(container.clientWidth, container.clientHeight);
 //     container.appendChild(renderer.domElement);
 
-//     const loader = new THREE.GLTFLoader();
-//     loader.load('C:\\LEGO-Website\\my-website\\src\\assets\\Lego20Empire20State20Building.gltf', (gltf) => {
+//     const loader = new GLTFLoader();
+//     loader.load('./src/assets/Lego20Empire20State20Building.gltf', (gltf) => { 
 //       scene.add(gltf.scene);
 //     });
 
@@ -69,6 +71,7 @@ Header = () => {
 //     <div ref={containerRef} />
 //   );
 // };
+
 
 export default 
 Header

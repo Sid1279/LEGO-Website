@@ -1,25 +1,25 @@
 import React from 'react'
 import "./brand.css"
-import { google, slack, atlassian, dropbox, shopify } from './imports';
+import { mindstorms, rebrickable, lego, ninjago, bricklink, } from './imports';
 
 const 
 Brand = () => {
   return (
     <div className="gpt3__brand section__padding">
-    <div>
-      <img src={google} alt = ""/>
+    <div className='img'>
+      <img src={ninjago} alt = "" width = "200" height = "50"/>
     </div>
-    <div>
-      <img src={slack} alt = ""/>
+    <div></div>
+    <div className='img'>
+      <img src={mindstorms} alt = "" width = "200" height = "100"/>
     </div>
-    <div>
-      <img src={atlassian} alt = ""/>
+    <div></div>
+    <div className='img'>
+      <img src={bricklink} alt = "" width = "300" height = "50"/>
     </div>
-    <div>
-      <img src={dropbox} alt = ""/>
-    </div>
-    <div>
-      <img src={shopify} alt = ""/>
+    <div></div>
+    <div className='img'>
+      <img src={rebrickable} alt = "" width = "300" height = "50"/>
     </div>
   </div>
   ) 

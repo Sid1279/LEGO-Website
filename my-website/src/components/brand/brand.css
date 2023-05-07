@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    background-color: #040C18;
 }
 
 .gpt3__brand div {
@@ -14,4 +15,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.img{
+    margin-left: 100rem;
+    margin-right: 100rem;
 }
