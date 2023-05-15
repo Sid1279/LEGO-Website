@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import {results} from "./minifigs";
+import {minifigs} from "./minifigs";
+// import {parts} from "./parts";
+// import {sets} from "./sets";
 import "./app.css";
 import Table from "./Table";
-import axios from "axios";
+// import axios from "axios";
 
 //////////////////////BASIC SEARCH
 
@@ -30,107 +32,140 @@ import axios from "axios";
 
 /////////////////////SEARCH ON A DATATABLE
 
+function App() {
+  const [query, setQuery] = useState("");
+  const keys = ["set_num", "name", "set_img_url"];
+  const search = (data) => {
+    return data.filter((item) =>
+      keys.some((key) => item[key]?.toLowerCase().includes(query))
+    );
+  };
+return (
+  <div className="app">
+      <input
+        className="search"
+        placeholder="Search..."
+        onChange={(e) => setQuery(e.target.value.toLowerCase())}
+      />
+    {<Table data={search(minifigs)} />}
+  </div>
+);
+}
+export default App;
+
+
+///////////////////// SAVE FILES
+// import { saveAs } from 'file-saver';
 // function App() {
-//   const [query, setQuery] = useState("");
-//   const keys = ["set_num", "name", "set_img_url"];
-//   const search = (data) => {
-//     return data.filter((item) =>
-//       keys.some((key) => item[key]?.toLowerCase().includes(query))
-//     );
-//   };
-// return (
-//   <div className="app">
-//       <input
-//         className="search"
-//         placeholder="Search..."
-//         onChange={(e) => setQuery(e.target.value.toLowerCase())}
-//       />
-//     {<Table data={search(results)} />}
-//   </div>
-// );
-// }
+//   async function getAllData() {
+//     const minifig_urls = [];
+//     const set_urls = [];
+//     const part_urls = [];
 
+//     function delay(ms) {
+//       return new Promise(resolve => setTimeout(resolve, ms));
+//     }
+  
+//     for (let i = 1; i <= 13; i++) {
+//       minifig_urls.push(`https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=${i}&page_size=1000`);
+//       delay(1000);
+//     }
+//     for (let i = 1; i <= 22; i++) {
+//       set_urls.push(`https://rebrickable.com/api/v3/lego/sets/?key=7dd3aa13b924bb746bbad213b865bab5&page=${i}&page_size=1000`);
+//       delay(1000);
+//     }
+//     for (let i = 1; i <= 51; i++) {
+//       part_urls.push(`https://rebrickable.com/api/v3/lego/parts/?key=7dd3aa13b924bb746bbad213b865bab5&page=${i}&page_size=1000`);
+//       delay(1000);
+//     }
 
-////////////////////// API SEARCH
+//     let minifig_dataArr = [];
+//     let set_dataArr = [];
+//     let part_dataArr = [];
 
-// function App() {
-//   const [query, setQuery] = useState("");
-//   const [data, setData] = useState([]);
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       const res = await axios.get(`http://localhost:5000?q=${query}`);
-//       setData(res.data);
-//     };
-//     if (query.length === 0 || query.length > 2) fetchData();
-//   }, [query]);
-
-//   return (
-//     <div className="app">
-//         <input
-//           className="search"
-//           placeholder="Search..."
-//           onChange={(e) => setQuery(e.target.value.toLowerCase())}
-//         />
-//       {<Table data={data} />}
-//     </div>
-//   );
-// }
-
-// function App() {
-//   async function getData() {
 //     try {
-//       const response = await fetch('https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=2&page_size=1000');
-//       const data = await response.json();
-//       const results = data.results;
-//       const jsonObject = JSON.parse(JSON.stringify(results));
-//       // Do something with the jsonObject
-//       console.log(jsonObject);
+//       for (const url of minifig_urls) {
+//         const response = await fetch(url);
+//         const data = await response.json();
+//         const jsonObject = JSON.parse(JSON.stringify(data));
+//         const results = jsonObject.results;
+
+//         // Do something with the jsonObject
+//         minifig_dataArr = minifig_dataArr.concat(results);
+//       }
+//       for (const url of set_urls) {
+//         const response = await fetch(url);
+//         const data = await response.json();
+//         const jsonObject = JSON.parse(JSON.stringify(data));
+//         const results = jsonObject.results;
+
+//         // Do something with the jsonObject
+//         set_dataArr = set_dataArr.concat(results);
+//       }
+
+//       for (const url of part_urls) {
+//         const response = await fetch(url);
+//         const data = await response.json();
+//         const jsonObject = JSON.parse(JSON.stringify(data));
+//         const results = jsonObject.results;
+
+//         // Do something with the jsonObject
+//         part_dataArr = part_dataArr.concat(results);
+//       }
+
+//       // Do something with the combinedData.results
+//       const file_minifig_data = `const data = ${JSON.stringify(minifig_dataArr)}`;
+//       const minifig_blob = new Blob([file_minifig_data], { type: 'text/javascript;charset=utf-8' });
+//       saveAs(minifig_blob, 'minifigs.js');
+
+
+//       // Do something with the combinedData.results
+//       const file_set_data = `const data = ${JSON.stringify(set_dataArr)}`;
+//       const set_blob = new Blob([file_set_data], { type: 'text/javascript;charset=utf-8' });
+//       saveAs(set_blob, 'sets.js');
+
+//       //Do something with the combinedData.results
+//       const file_part_data = `const data = ${JSON.stringify(part_dataArr)}`;
+//       const part_blob = new Blob([file_part_data], { type: 'text/javascript;charset=utf-8' });
+//       saveAs(part_blob, 'parts.js');
+      
 //     } catch (error) {
 //       console.error(error);
 //     }
 //   }
-//   getData();
+//   getAllData();
 // }
-
 // export default App;
 
-import { saveAs } from 'file-saver';
-function App() {
-  async function getDataMinifigs() {
-    const minifig_urls = [
-      'https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=1&page_size=1000',
-      'https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=2&page_size=1000',
-      'https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=3&page_size=1000',
-      'https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=4&page_size=1000',
-      'https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=5&page_size=1000',
-      'https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=6&page_size=1000',
-      'https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=7&page_size=1000',
-      'https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=8&page_size=1000',
-      'https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=9&page_size=1000',
-      'https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=10&page_size=1000',
-      'https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=11&page_size=1000',
-      'https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=12&page_size=1000',
-      'https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=13&page_size=1000',
-    ];
 
-    try {
-      const responses = await Promise.all(minifig_urls.map(url => fetch(url)));
-      const data = await Promise.all(responses.map(res => res.json()));
-      const combinedData = Object.assign({}, ...data);
-      const results_final = combinedData.results;
-      // Do something with the combinedData
-      console.log(combinedData.results);
-      const fileData = `const data = ${JSON.stringify(results_final)}`;
 
-      const blob = new Blob([fileData], { type: 'text/javascript;charset=utf-8' });
-      saveAs(blob, 'data.js');
+////////////////////// SAMPLE FILE SAVER
 
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  getDataMinifigs();
-}
-export default App;
+// function App() {
+//   async function getData() {
+//     const urls = [
+//       "https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=1&page_size=1000",
+//       "https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=2&page_size=1000",
+//       "https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=3&page_size=1000"
+//     ];
+  
+//     let dataArr = [];
+//         try {
+//           for (const url of urls) {
+//             const response = await fetch(url);
+//             const data = await response.json();
+//             const jsonObject = JSON.parse(JSON.stringify(data));
+//             const results = jsonObject.results;
 
+//             // Do something with the jsonObject
+//             dataArr = dataArr.concat(results);
+//           }
+//         } catch (error) {
+//           console.error(error);
+//         }
+//         console.log(dataArr);
+//     }
+
+//     getData();
+// }
+// export default App;

@@ -5,13 +5,13 @@ const Table = ({ data }) => {
           <tr>
             <th>Minifig Number</th>
             <th>Name</th>
-            <th>Set image id</th>
+            <th>Minifig image id</th>
           </tr>
           {data.map((item) => (
             <tr key={item.id}>
               <td>{item.set_num}</td>
               <td>{item.name}</td>
-              <td>{<a href={item.set_img_url}>{item.set_img_url}</a>}</td>
+              <td>{<img src={item.set_img_url} width="auto" height="200"></img>}</td>
             </tr>
           ))}
         </tbody>
