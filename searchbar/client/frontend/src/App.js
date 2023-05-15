@@ -4,6 +4,7 @@ import {minifigs} from "./minifigs";
 // import {sets} from "./sets";
 import "./app.css";
 import Table from "./Table";
+import { TablePagination } from '@mui/material';
 // import axios from "axios";
 
 //////////////////////BASIC SEARCH
@@ -33,13 +34,31 @@ import Table from "./Table";
 /////////////////////SEARCH ON A DATATABLE
 
 function App() {
+  const [paginate, setpaginate] = useState(10);
+
+
   const [query, setQuery] = useState("");
   const keys = ["set_num", "name", "set_img_url"];
-  const search = (data) => {
-    return data.filter((item) =>
-      keys.some((key) => item[key]?.toLowerCase().includes(query))
+
+  // const search = (data) => {
+  //   return data.filter((item) =>
+  //     keys.some((key) => item[key]?.toLowerCase().includes(query))
+  //   );
+  // };
+
+  function search(data) {
+    return data.filter(
+      (item) =>
+        keys.some((key) =>
+          item[key]?.toLowerCase().includes(query)
+        )
     );
+  }
+  const load_more = (event) => {
+    setpaginate((prevValue) => prevValue + 8);
   };
+
+
 return (
   <div className="app">
       <input
@@ -47,7 +66,11 @@ return (
         placeholder="Search..."
         onChange={(e) => setQuery(e.target.value.toLowerCase())}
       />
-    {<Table data={search(minifigs)} />}
+    {<Table data={
+      search(minifigs).slice(0, paginate)
+      } />
+    }
+    <button onClick={load_more}>Load More</button>
   </div>
 );
 }
