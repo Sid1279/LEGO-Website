@@ -8,6 +8,10 @@ import { styled } from "@mui/system";
 import TablePagination, {
   tablePaginationClasses as classes,
 } from "@mui/base/TablePagination";
+import { Radio, RadioGroup, FormControlLabel } from '@mui/material';
+import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 // import axios from "axios";
 /////////////////////SEARCH ON A DATATABLE
 
@@ -202,10 +206,10 @@ import TablePagination, {
 // }
 function App() {
   const [query, setQuery] = useState("");
-  const [selectedOption, setSelectedOption] = useState("sets"); // Default to searching minifigs
+  const [selectedOption, setSelectedOption] = useState("minifigs"); // Default to searching minifigs
   let keys = ["set_num", "name", "set_img_url"];
   const [pg, setpg] = React.useState(0);
-  const [rpg, setrpg] = React.useState(10);
+  const [rpg, setrpg] = React.useState(12);
 
   function getDataBySelectedOption() {
     switch (selectedOption) {
@@ -213,7 +217,7 @@ function App() {
         keys = ["set_num", "name", "set_img_url"];
         return minifigs;
       case "parts":
-        keys = ["part_num", "name", "set_img_url"];
+        keys = ["part_num", "name", "part_img_url"];
         return parts.filter((item) => item !== null);
       case "sets":
         keys = ["set_num", "name", "set_img_url"];
@@ -254,69 +258,160 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="full">
       <div className="header">
-        <h1>Catalogue</h1>
-      </div>
-      <div className="app">
-        <div>
-          <label>
-            <input
-              type="radio"
-              value="minifigs"
-              checked={selectedOption === "minifigs"}
-              onChange={handleFilterChange}
-            />
-            Minifigs
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="sets"
-              checked={selectedOption === "sets"}
-              onChange={handleFilterChange}
-            />
-            Sets
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="parts"
-              checked={selectedOption === "parts"}
-              onChange={handleFilterChange}
-            />
-            Parts
-          </label>
+        <div className="header-left-section">
+          <h1>Catalogue</h1>
         </div>
-        <input
-          className="search"
-          placeholder="Search..."
-          onChange={(e) => setQuery(e.target.value.toLowerCase())}
-        />
-        <Table data={search(getDataBySelectedOption())} selectedOption = {selectedOption} />
-        <TablePagination
-          slotProps={{
-            select: {
-              "aria-label": "rows per page",
-            },
-            actions: {
-              showFirstButton: true,
-              showLastButton: true,
-            },
-          }}
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={query ? count_search(getDataBySelectedOption()) : getDataBySelectedOption().length}
-          rowsPerPage={rpg}
-          page={pg}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
+        <div className="filter-box">
+          <RadioGroup
+            aria-label="filter"
+            value={selectedOption}
+            onChange={handleFilterChange}
+            className="filter-radio-group"
+            sx={{
+              '& .MuiSvgIcon-root': {
+                color: '#1A1B41', // Replace 'your_color_here' with your desired color value
+              },
+              '& .Mui-checked': {
+                color: '#BAFF29', // Replace 'your_checked_color_here' with your desired color value for checked checkboxes
+              },
+            }}
+          >
+          <FormControlLabel
+            value="minifigs"
+            control={<Radio />}
+            label="Minifigures"
+            className="filter-radio-label"
+          />
+          <FormControlLabel
+            value="sets"
+            control={<Radio />}
+            label="Sets"
+            className="filter-radio-label"
+          />
+          <FormControlLabel
+            value="parts"
+            control={<Radio />}
+            label="Parts"
+            className="filter-radio-label"
+          />
+          </RadioGroup>
+        </div>
+      </div>
+
+      <div className="app">
+        <div className="right-section">
+          <input
+            className="search"
+            placeholder="Search..."
+            onChange={(e) => setQuery(e.target.value.toLowerCase())}
+          />
+          <Table data={search(getDataBySelectedOption())} selectedOption={selectedOption} />
+        <div className="footer">
+          <div class="pagination-container">
+            <TablePagination
+              className="custom-table-pagination"
+              slotProps={{
+                select: {
+                  "aria-label": "rows per page",
+                },
+                actions: {
+                  showFirstButton: true,
+                  showLastButton: true,
+                },
+              }}
+              rowsPerPageOptions={[12, 24, 36]}
+              component="div"
+              count={query ? count_search(getDataBySelectedOption()) : getDataBySelectedOption().length}
+              rowsPerPage={rpg}
+              page={pg}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+              labelRowsPerPage="Items per page"
+            />
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   );
+
+
 }
 export default App;
+
+
+
+
+  // return (
+  //   <div>
+  //     <div className="header">
+  //       <h1>Catalogue</h1>
+  //     </div>
+  //     <div className="app">
+  //       <div className="filter">
+  //         <RadioGroup
+  //           aria-label="filter"
+  //           value={selectedOption}
+  //           onChange={handleFilterChange}
+  //           className="filter-radio-group"
+  //         >
+  //           <FormControlLabel
+  //             value="minifigs"
+  //             control={<Radio />}
+  //             label="Minifigs"
+  //             className="filter-radio-label"
+  //           />
+  //           <FormControlLabel
+  //             value="sets"
+  //             control={<Radio />}
+  //             label="Sets"
+  //             className="filter-radio-label"
+  //           />
+  //           <FormControlLabel
+  //             value="parts"
+  //             control={<Radio />}
+  //             label="Parts"
+  //             className="filter-radio-label"
+  //           />
+  //         </RadioGroup>
+  //       </div>
+
+  //       <input
+  //         className="search"
+  //         placeholder="Search..."
+  //         onChange={(e) => setQuery(e.target.value.toLowerCase())}
+  //       />
+  //       <Table data={search(getDataBySelectedOption())} selectedOption = {selectedOption} />
+  //       <TablePagination
+  //         slotProps={{
+  //           select: {
+  //             "aria-label": "rows per page",
+  //           },
+  //           actions: {
+  //             showFirstButton: true,
+  //             showLastButton: true,
+  //           },
+  //         }}
+  //         rowsPerPageOptions={[5, 10, 25]}
+  //         component="div"
+  //         count={query ? count_search(getDataBySelectedOption()) : getDataBySelectedOption().length}
+  //         rowsPerPage={rpg}
+  //         page={pg}
+  //         onPageChange={handleChangePage}
+  //         onRowsPerPageChange={handleChangeRowsPerPage}
+  //       />
+  //     </div>
+  //   </div>
+  // );
+
+
+
+
+
+
+
 
 // const blue = {
 //   200: '#A5D8FF',
