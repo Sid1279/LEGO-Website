@@ -34,8 +34,10 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1>⚛️🔥💬</h1>
+      <header className='header'>
+        <div className='logo'>
+          <h1>Chat</h1>
+        </div>
         <SignOut />
       </header>
 
@@ -55,10 +57,11 @@ function SignIn() {
   }
 
   return (
-    <>
-      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-      <p>Do not violate the community guidelines or you will be banned for life!</p>
-    </>
+    <div className='content'>
+      <h1>Welcome to Benzene Chat!</h1>
+      <br></br>
+      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button> 
+    </div>
   )
 
 }
@@ -96,7 +99,8 @@ function ChatRoom() {
     dummy.current.scrollIntoView({ behavior: 'smooth' });
   }
 
-  return (<>
+  return (
+  <div>
     <main>
 
       {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
@@ -105,14 +109,17 @@ function ChatRoom() {
 
     </main>
 
+    <div className='form-fr'>
     <form onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Type here..." />
 
-      <button type="submit" disabled={!formValue}>🕊️</button>
+      <button type="submit" disabled={!formValue}>{">"}</button>
 
     </form>
-  </>)
+    </div>
+  </div>
+  )
 }
 
 
@@ -123,7 +130,7 @@ function ChatMessage(props) {
 
   return (<>
     <div className={`message ${messageClass}`}>
-      <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
+      <img src={photoURL} />
       <p>{text}</p>
     </div>
   </>)
