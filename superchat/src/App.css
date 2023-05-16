@@ -1,0 +1,279 @@
+/* body {
+  background-color: #282c34;
+}
+
+.App {
+  text-align: center;
+  max-width: 728px;
+  margin: 0 auto;
+}
+
+.App header {
+  background-color: #181717;
+  height: 10vh;
+  min-height: 50px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  max-width: 728px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.App section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rgb(40, 37, 53);
+}
+
+main {
+  padding: 10px;
+  height: 80vh;
+  margin: 10vh 0 10vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+main::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+main::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: #6649b8;
+}
+
+form {
+  height: 10vh;
+  position: fixed;
+  bottom: 0;
+  background-color: rgb(24, 23, 23);
+  width: 100%;
+  max-width: 728px;
+  display: flex;
+  font-size: 1.5rem;
+}
+
+form button {
+  width: 20%;
+  background-color: rgb(56, 56, 143);
+} */
+
+body {
+  background-color: #6290C3;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+  max-width: 728px;
+  margin: 0 auto;
+  border-left: 10px solid #1A1B41;
+  border-right: 10px solid #1A1B41;
+  border-bottom: 10px solid #1A1B41;
+}
+
+.App header {
+  background-color: #1A1B41;
+  height: 20%;
+  min-height: 50px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  max-width: 728px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.App section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 90%;
+  background-color: #C2E7DA;
+  height: 98.7vh;
+  
+}
+
+.logo h1{
+  font-weight: 800;
+  font-size: 60px;
+  letter-spacing: -0.04em; 
+  color: #BAFF29;
+  margin-left: 5%
+}
+
+main {
+  padding: 10px;
+  margin-top: 7.8vh;
+  margin-bottom: 8vh;
+  height: 80vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+main::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+main::-webkit-scrollbar-track {
+  background: #343775;
+  min-height: 100%;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: #BAFF29;
+}
+
+form {
+  height: 10vh;
+  position: fixed;
+  bottom: 0;
+  background-color: #1A1B41;
+  width: 100%;
+  max-width: 728px;
+  display: flex;
+  font-size: 1.5rem;
+  border-top: 10px solid #1A1B41;
+  border-right: 10px solid #1A1B41;
+}
+
+form button {
+  width: 20%;
+  background-color: #BAFF29;
+  font-size: 40px;
+  color: #1A1B41;
+  border: none;
+  cursor: pointer;
+  border-left: 10px solid #1A1B41;
+}
+
+input {
+  line-height: 1.5;
+  width: 100%;
+  font-size: 1.5rem;
+  background: #F1FFE7;
+  color: #1A1B41;
+  outline: none;
+  border: none;
+  padding: 0 10px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #1A1B41;
+  color: #BAFF29;
+}
+
+
+/* sign in button */
+.sign-in, .sign-out {
+  color: #1A1B41;
+  background: #BAFF29;
+  max-width: 400px;
+  margin: 0 auto;
+
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.sign-out {
+  color: #BAFF29;
+  background: #1A1B41;
+  margin-left: 60%;
+}
+
+.sign-in:active, .sign-out:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .sign-in, .sign-out {
+    padding: 0.25em 0.75em;
+  }
+}
+/* end sign in button */
+
+ul, li {
+  text-align: left;
+  list-style: none;
+}
+
+p {
+  max-width: 500px;
+  margin-bottom: 12px;
+  line-height: 24px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  position: relative;
+  color: white;
+  text-align: center;
+  margin-left: 100px;
+}
+
+.content h1 {
+  font-weight: 800;
+  font-size: 40px;
+  letter-spacing: -0.04em; 
+  color: #1A1B41;
+  /* text-shadow: -6px -6px #6290C3; */
+}
+
+.message {
+  display: flex;
+  align-items: center;
+}
+
+.sent {
+  flex-direction: row-reverse;
+}
+
+.sent p {
+  color: white;
+  background: #6290C3;
+  align-self: flex-end;
+}
+
+.received p {
+  background: #C2E7DA;
+  color: #1A1B41;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 2px 5px;
+}

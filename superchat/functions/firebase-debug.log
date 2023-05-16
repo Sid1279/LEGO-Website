@@ -1,0 +1,67 @@
+[debug] [2023-05-15T03:42:17.168Z] ----------------------------------------------------------------------
+[debug] [2023-05-15T03:42:17.170Z] Command:       /usr/local/bin/firebase /Users/harinikarthik/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase functions:shell
+[debug] [2023-05-15T03:42:17.170Z] CLI Version:   12.0.0
+[debug] [2023-05-15T03:42:17.170Z] Platform:      darwin
+[debug] [2023-05-15T03:42:17.170Z] Node Version:  v16.16.0
+[debug] [2023-05-15T03:42:17.178Z] Time:          Sun May 14 2023 23:42:17 GMT-0400 (Eastern Daylight Time)
+[debug] [2023-05-15T03:42:17.178Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-15T03:42:17.274Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-15T03:42:17.276Z] > authorizing via signed-in user (hka747910@gmail.com)
+[debug] [2023-05-15T03:42:17.277Z] [iam] checking project superchat-cece7 for permissions ["firebase.projects.get"]
+[debug] [2023-05-15T03:42:17.281Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/superchat-cece7:testIamPermissions [none]
+[debug] [2023-05-15T03:42:17.281Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/superchat-cece7:testIamPermissions x-goog-quota-user=projects/superchat-cece7
+[debug] [2023-05-15T03:42:17.282Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/superchat-cece7:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2023-05-15T03:42:17.643Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/superchat-cece7:testIamPermissions 200
+[debug] [2023-05-15T03:42:17.647Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/superchat-cece7:testIamPermissions {"permissions":["firebase.projects.get"]}
+[warn] ⚠  functions: Functions Emulator unable to start on port 5000, starting on 5001 instead. {"metadata":{"emulator":{"name":"functions"},"message":"Functions Emulator unable to start on port 5000, starting on 5001 instead."}}
+[debug] [2023-05-15T03:42:17.899Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-05-15T03:42:17.902Z] defaultcredentials: writing to file /Users/harinikarthik/.config/firebase/hka747910_gmail_com_application_default_credentials.json
+[debug] [2023-05-15T03:42:17.904Z] DEBUG: Setting GAC to /Users/harinikarthik/.config/firebase/hka747910_gmail_com_application_default_credentials.json
+[debug] [2023-05-15T03:42:17.905Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/superchat-cece7/adminSdkConfig [none]
+[debug] [2023-05-15T03:42:18.312Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/superchat-cece7/adminSdkConfig 200
+[debug] [2023-05-15T03:42:18.314Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/superchat-cece7/adminSdkConfig {"projectId":"superchat-cece7","storageBucket":"superchat-cece7.appspot.com"}
+[debug] [2023-05-15T03:42:18.334Z] [functions] Watching "/Users/harinikarthik/Documents/codingprojects/superchat/functions" for Cloud Functions...
+[debug] [2023-05-15T03:42:18.344Z] Validating nodejs source
+[debug] [2023-05-15T03:42:19.423Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "bad-words": "^3.0.4",
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-05-15T03:42:19.425Z] Building nodejs source
+[debug] [2023-05-15T03:42:19.425Z] Failed to find version of module node: reached end of search path /Users/harinikarthik/Documents/codingprojects/superchat/functions/node_modules
+[warn] ⚠  functions: You've requested "node" version "18", but the standalone Firebase CLI comes with bundled Node "16". 
+[info] ✔  functions: To use a different Node.js version, consider removing the standalone Firebase CLI and switching to "firebase-tools" on npm. 
+[debug] [2023-05-15T03:42:19.429Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-05-15T03:42:19.446Z] Found firebase-functions binary at '/Users/harinikarthik/Documents/codingprojects/superchat/functions/node_modules/.bin/firebase-functions'
+[debug] [2023-05-15T03:42:20.008Z] Serving at port 8192
+
+[debug] [2023-05-15T03:42:20.246Z] Got response from /__/functions.yaml {"endpoints":{"detectEvilUsers":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.create","eventFilters":{"resource":"projects/superchat-cece7/databases/(default)/documents/messages/{msgId}"},"retry":false},"labels":{},"entryPoint":"detectEvilUsers"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2023-05-15T03:42:20.260Z] shutdown requested via /__/quitquitquit
+
+[debug] [2023-05-15T03:42:20.277Z] [functions] Loaded functions definitions from source: detectEvilUsers.
+[debug] [2023-05-15T03:42:20.277Z] [functions[us-central1-detectEvilUsers]] function ignored because the firestore emulator does not exist or is not running.
+[info] i  functions: Loaded functions: detectEvilUsers 
+[warn] ⚠  functions: The following emulators are not running, calls to these services will affect production: firestore, database, pubsub, storage, eventarc 
