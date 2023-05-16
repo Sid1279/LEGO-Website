@@ -1,80 +1,431 @@
-import { useEffect, useState } from "react";
-import {minifigs} from "./minifigs";
-// import {parts} from "./parts";
-// import {sets} from "./sets";
+import React, { useState } from "react";
+import { minifigs } from "./minifigs";
+import { parts } from "./parts";
+import { sets } from "./sets";
 import "./app.css";
 import Table from "./Table";
-import { TablePagination } from '@mui/material';
+import { styled } from "@mui/system";
+import TablePagination, {
+  tablePaginationClasses as classes,
+} from "@mui/base/TablePagination";
 // import axios from "axios";
-
-//////////////////////BASIC SEARCH
+/////////////////////SEARCH ON A DATATABLE
 
 // function App() {
+//   const [paginate, setpaginate] = useState(10);
+
+
 //   const [query, setQuery] = useState("");
-//   return (
-//     <div className="app">
+//   const keys = ["set_num", "name", "set_img_url"];
+
+//   // const search = (data) => {
+//   //   return data.filter((item) =>
+//   //     keys.some((key) => item[key]?.toLowerCase().includes(query))
+//   //   );
+//   // };
+
+//   function search(data) {
+//     return data.filter(
+//       (item) =>
+//         keys.some((key) =>
+//           item[key]?.toLowerCase().includes(query)
+//         )
+//     );
+//   }
+//   const load_more = (event) => {
+//     setpaginate((prevValue) => prevValue + 8);
+//   };
+
+
+// return (
+//   <div className="app">
 //       <input
 //         className="search"
 //         placeholder="Search..."
 //         onChange={(e) => setQuery(e.target.value.toLowerCase())}
 //       />
-//       <ul className="list">
-//         {Users.filter((asd) =>
-//           asd.first_name.toLowerCase().includes(query)
-//         ).map((user) => (
-//           <li className="listItem" key={user.id}>
-//             {user.first_name}
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
+//     {<Table data={
+//       search(minifigs).slice(0, paginate)
+//       } />
+//     }
+//     <button onClick={load_more}>Load More</button>
+//   </div>
+// );
 // }
+// export default App;
 
-/////////////////////SEARCH ON A DATATABLE
 
+
+///////////////////// TABLE PAGINATION
+// function App() {
+
+//   const [query, setQuery] = useState("");
+//   const keys = ["set_num", "name", "set_img_url"];
+//   const [pg, setpg] = React.useState(0);
+//   const [rpg, setrpg] = React.useState(10);
+
+//   // const search = (data) => {
+//   //   return data.filter((item) =>
+//   //     keys.some((key) => item[key]?.toLowerCase().includes(query))
+//   //   );
+//   // };
+
+//   function search(data) {
+//     const startIndex = pg * rpg; // Calculate the starting index based on the current page and rows per page
+//     const endIndex = startIndex + rpg; // Calculate the ending index
+//     return data.filter(
+//       (item) =>
+//         keys.some((key) =>
+//           item[key]?.toLowerCase().includes(query)
+//         )
+//     ).slice(startIndex, endIndex);
+//   }
+
+//   function count_search(data) {
+//     return data.filter(
+//       (item) =>
+//         keys.some((key) =>
+//           item[key]?.toLowerCase().includes(query)
+//         )
+//     ).length;
+//   }
+
+//   function handleChangePage(event, newpage) {
+//     setpg(newpage);
+//   }
+
+//   function handleChangeRowsPerPage(event) {
+//       setrpg(parseInt(event.target.value, 10));
+//       setpg(0);
+//   }
+
+// return (
+//   <div className="app">
+//       <input
+//         className="search"
+//         placeholder="Search..."
+//         onChange={(e) => setQuery(e.target.value.toLowerCase())}
+//       />
+//     {<Table data={
+//       search(minifigs)
+//       } />
+//     }
+//     <TablePagination
+//       rowsPerPageOptions={[10, 25]}
+//       component="div"
+//       count= {query ? count_search(minifigs) : minifigs.length}
+//       rowsPerPage={rpg}
+//       page={pg}
+//       onPageChange={handleChangePage}
+//       onRowsPerPageChange={handleChangeRowsPerPage}
+//       slots={{ root: 'div', toolbar: 'nav' }}
+//     />
+//   </div>
+// );
+// }
+// export default App;
+
+
+///////////////////// TABLE PAGINATION WITH UI
+// function App() {
+
+//   const [query, setQuery] = useState("");
+//   const keys = ["set_num", "name", "set_img_url"];
+//   const [pg, setpg] = React.useState(0);
+//   const [rpg, setrpg] = React.useState(10);
+
+//   function search(data) {
+//     const startIndex = pg * rpg; // Calculate the starting index based on the current page and rows per page
+//     const endIndex = startIndex + rpg; // Calculate the ending index
+//     return data.filter(
+//       (item) =>
+//         keys.some((key) =>
+//           item[key]?.toLowerCase().includes(query)
+//         )
+//     ).slice(startIndex, endIndex);
+//   }
+
+//   function count_search(data) {
+//     return data.filter(
+//       (item) =>
+//         keys.some((key) =>
+//           item[key]?.toLowerCase().includes(query)
+//         )
+//     ).length;
+//   }
+
+//   function handleChangePage(event, newpage) {
+//     setpg(newpage);
+//   }
+
+//   function handleChangeRowsPerPage(event) {
+//       setrpg(parseInt(event.target.value, 10));
+//       setpg(0);
+//   }
+
+// return (
+//   <div>
+//   <div className="header">
+//         <h1>Catalogue</h1>
+//   </div>
+//   <div className="app">
+//       <input
+//         className="search"
+//         placeholder="Search..."
+//         onChange={(e) => setQuery(e.target.value.toLowerCase())}
+//       />
+//     {<Table data={
+//       search(minifigs)
+//       } />
+//     }
+//     <TablePagination
+//       slotProps={{
+//         select: {
+//           'aria-label': 'rows per page',
+//         },
+//         actions: {
+//           showFirstButton: true,
+//           showLastButton: true,
+//         },
+//       }}
+//       rowsPerPageOptions={[5, 10, 25]}
+//       component="div"
+//       count= {query ? count_search(minifigs) : minifigs.length}
+//       rowsPerPage={rpg}
+//       page={pg}
+//       onPageChange={handleChangePage}
+//       onRowsPerPageChange={handleChangeRowsPerPage}
+//     />
+//   </div>
+//   </div>
+// );
+// }
 function App() {
-  const [paginate, setpaginate] = useState(10);
-
-
   const [query, setQuery] = useState("");
-  const keys = ["set_num", "name", "set_img_url"];
+  const [selectedOption, setSelectedOption] = useState("sets"); // Default to searching minifigs
+  let keys = ["set_num", "name", "set_img_url"];
+  const [pg, setpg] = React.useState(0);
+  const [rpg, setrpg] = React.useState(10);
 
-  // const search = (data) => {
-  //   return data.filter((item) =>
-  //     keys.some((key) => item[key]?.toLowerCase().includes(query))
-  //   );
-  // };
+  function getDataBySelectedOption() {
+    switch (selectedOption) {
+      case "minifigs":
+        keys = ["set_num", "name", "set_img_url"];
+        return minifigs;
+      case "parts":
+        keys = ["part_num", "name", "set_img_url"];
+        return parts.filter((item) => item !== null);
+      case "sets":
+        keys = ["set_num", "name", "set_img_url"];
+        return sets;
+      default:
+        return [];
+    }
+  }
 
   function search(data) {
-    return data.filter(
-      (item) =>
-        keys.some((key) =>
-          item[key]?.toLowerCase().includes(query)
-        )
-    );
+    const startIndex = pg * rpg; // Calculate the starting index based on the current page and rows per page
+    const endIndex = startIndex + rpg; // Calculate the ending index
+    return data
+      .filter((item) =>
+        keys.some((key) => item[key]?.toLowerCase().includes(query))
+      )
+      .slice(startIndex, endIndex);
   }
-  const load_more = (event) => {
-    setpaginate((prevValue) => prevValue + 8);
-  };
 
+  function count_search(data) {
+    return data.filter((item) =>
+      keys.some((key) => item[key]?.toLowerCase().includes(query))
+    ).length;
+  }
 
-return (
-  <div className="app">
-      <input
-        className="search"
-        placeholder="Search..."
-        onChange={(e) => setQuery(e.target.value.toLowerCase())}
-      />
-    {<Table data={
-      search(minifigs).slice(0, paginate)
-      } />
-    }
-    <button onClick={load_more}>Load More</button>
-  </div>
-);
+  function handleChangePage(event, newpage) {
+    setpg(newpage);
+  }
+
+  function handleChangeRowsPerPage(event) {
+    setrpg(parseInt(event.target.value, 10));
+    setpg(0);
+  }
+
+  function handleFilterChange(event) {
+    setSelectedOption(event.target.value);
+    setQuery(""); // Reset the query when changing the filter
+  }
+
+  return (
+    <div>
+      <div className="header">
+        <h1>Catalogue</h1>
+      </div>
+      <div className="app">
+        <div>
+          <label>
+            <input
+              type="radio"
+              value="minifigs"
+              checked={selectedOption === "minifigs"}
+              onChange={handleFilterChange}
+            />
+            Minifigs
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="sets"
+              checked={selectedOption === "sets"}
+              onChange={handleFilterChange}
+            />
+            Sets
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="parts"
+              checked={selectedOption === "parts"}
+              onChange={handleFilterChange}
+            />
+            Parts
+          </label>
+        </div>
+        <input
+          className="search"
+          placeholder="Search..."
+          onChange={(e) => setQuery(e.target.value.toLowerCase())}
+        />
+        <Table data={search(getDataBySelectedOption())} selectedOption = {selectedOption} />
+        <TablePagination
+          slotProps={{
+            select: {
+              "aria-label": "rows per page",
+            },
+            actions: {
+              showFirstButton: true,
+              showLastButton: true,
+            },
+          }}
+          rowsPerPageOptions={[5, 10, 25]}
+          component="div"
+          count={query ? count_search(getDataBySelectedOption()) : getDataBySelectedOption().length}
+          rowsPerPage={rpg}
+          page={pg}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </div>
+    </div>
+  );
 }
 export default App;
+
+// const blue = {
+//   200: '#A5D8FF',
+//   400: '#3399FF',
+// };
+
+// const grey = {
+//   50: '#F3F6F9',
+//   100: '#E7EBF0',
+//   200: '#E0E3E7',
+//   300: '#CDD2D7',
+//   400: '#B2BAC2',
+//   500: '#A0AAB4',
+//   600: '#6F7E8C',
+//   700: '#3E5060',
+//   800: '#2D3843',
+//   900: '#1A2027',
+// };
+// const Root = styled('div')(
+//   ({ theme }) => `
+//   table {
+//     font-family: IBM Plex Sans, sans-serif;
+//     font-size: 0.875rem;
+//     border-collapse: collapse;
+//     width: 100%;
+//   }
+
+//   td,
+//   th {
+//     border: 1px solid ${theme.palette.mode === 'dark' ? grey[800] : grey[200]};
+//     text-align: left;
+//     padding: 6px;
+//   }
+
+//   th {
+//     background-color: ${theme.palette.mode === 'dark' ? grey[900] : grey[100]};
+//   }
+//   `,
+// );
+
+// const CustomTablePagination = styled(TablePagination)(
+//   ({ theme }) => `
+//   & .${classes.spacer} {
+//     display: none;
+//   }
+
+//   & .${classes.toolbar}  {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     gap: 10px;
+
+//     @media (min-width: 768px) {
+//       flex-direction: row;
+//       align-items: center;
+//     }
+//   }
+
+//   & .${classes.selectLabel} {
+//     margin: 0;
+//   }
+
+//   & .${classes.select}{
+//     padding: 2px;
+//     border: 1px solid ${theme.palette.mode === 'dark' ? grey[800] : grey[200]};
+//     border-radius: 50px;
+//     background-color: transparent;
+
+//     &:hover {
+//       background-color: ${theme.palette.mode === 'dark' ? grey[800] : grey[50]};
+//     }
+
+//     &:focus {
+//       outline: 1px solid ${theme.palette.mode === 'dark' ? blue[400] : blue[200]};
+//     }
+//   }
+
+//   & .${classes.displayedRows} {
+//     margin: 0;
+
+//     @media (min-width: 768px) {
+//       margin-left: auto;
+//     }
+//   }
+
+//   & .${classes.actions} {
+//     padding: 2px;
+//     border: 1px solid ${theme.palette.mode === 'dark' ? grey[800] : grey[200]};
+//     border-radius: 50px;
+//     text-align: center;
+//   }
+
+//   & .${classes.actions} > button {
+//     margin: 0 8px;
+//     border: transparent;
+//     border-radius: 2px;
+//     background-color: transparent;
+
+//     &:hover {
+//       background-color: ${theme.palette.mode === 'dark' ? grey[800] : grey[50]};
+//     }
+
+//     &:focus {
+//       outline: 1px solid ${theme.palette.mode === 'dark' ? blue[400] : blue[200]};
+//     }
+//   }
+//   `,
+// );
+// export default App;
 
 
 ///////////////////// SAVE FILES
