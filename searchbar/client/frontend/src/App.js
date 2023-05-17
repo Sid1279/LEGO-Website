@@ -8,7 +8,7 @@ import { styled } from "@mui/system";
 import TablePagination, {
   tablePaginationClasses as classes,
 } from "@mui/base/TablePagination";
-import { Radio, RadioGroup, FormControlLabel } from '@mui/material';
+import { Radio, RadioGroup, FormControlLabel,  Checkbox, FormGroup } from '@mui/material';
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
@@ -261,77 +261,113 @@ function App() {
     <div className="full">
       <div className="header">
         <div className="header-left-section">
-          <h1>Catalogue</h1>
+          <h1>Dragonbricks Catalogue</h1>
         </div>
         <div className="filter-box">
-          <RadioGroup
-            aria-label="filter"
-            value={selectedOption}
-            onChange={handleFilterChange}
-            className="filter-radio-group"
-            sx={{
-              '& .MuiSvgIcon-root': {
-                color: '#1A1B41', // Replace 'your_color_here' with your desired color value
-              },
-              '& .Mui-checked': {
-                color: '#BAFF29', // Replace 'your_checked_color_here' with your desired color value for checked checkboxes
-              },
-            }}
-          >
-          <FormControlLabel
-            value="minifigs"
-            control={<Radio />}
-            label="Minifigures"
-            className="filter-radio-label"
-          />
-          <FormControlLabel
-            value="sets"
-            control={<Radio />}
-            label="Sets"
-            className="filter-radio-label"
-          />
-          <FormControlLabel
-            value="parts"
-            control={<Radio />}
-            label="Parts"
-            className="filter-radio-label"
-          />
-          </RadioGroup>
+          <h1>Filter by:</h1>
+          <FormGroup className="filter-radio-group">
+            <FormControlLabel
+              value="minifigs"
+              control={
+                <Checkbox
+                  checked={selectedOption === 'minifigs'}
+                  onChange={handleFilterChange}
+                  value="minifigs"
+                  color="default"
+                  sx={{
+                    color: '#C2E7DA',
+                    '&.Mui-checked': {
+                      color: '#BAFF29',
+                    },
+                    '&:hover': { color: '#BAFF29' }
+                  }}
+                />
+              }
+              label="Minifigures"
+              className="filter-radio-label"
+            />
+            <FormControlLabel
+              value="sets"
+              control={
+                <Checkbox
+                  checked={selectedOption === 'sets'}
+                  onChange={handleFilterChange}
+                  value="sets"
+                  color="default"
+                  sx={{
+                    color: '#C2E7DA',
+                    '&.Mui-checked': {
+                      color: '#BAFF29',
+                    },
+                    '&:hover': { color: '#BAFF29' }
+                  }}
+                />
+              }
+              label="Sets"
+              className="filter-radio-label"
+            />
+            <FormControlLabel
+              value="parts"
+              control={
+                <Checkbox
+                  checked={selectedOption === 'parts'}
+                  onChange={handleFilterChange}
+                  value="parts"
+                  color="default"
+                  sx={{
+                    color: '#C2E7DA',
+                    '&.Mui-checked': {
+                      color: '#BAFF29',
+                    },
+                    '&:hover': { color: '#BAFF29' }
+                  }}
+                />
+              }
+              label="Parts"
+              className="filter-radio-label"
+            />
+          </FormGroup>
         </div>
       </div>
 
       <div className="app">
         <div className="right-section">
+        <div className="search-container">
           <input
             className="search"
-            placeholder="Search..."
-            onChange={(e) => setQuery(e.target.value.toLowerCase())}
+            placeholder="Search..." autofocus required
+            onChange={(e) => setQuery(e.target.value.toLowerCase())
+            }
           />
-          <Table data={search(getDataBySelectedOption())} selectedOption={selectedOption} />
-        <div className="footer">
-          <div class="pagination-container">
-            <TablePagination
-              className="custom-table-pagination"
-              slotProps={{
-                select: {
-                  "aria-label": "rows per page",
-                },
-                actions: {
-                  showFirstButton: true,
-                  showLastButton: true,
-                },
-              }}
-              rowsPerPageOptions={[12, 24, 36]}
-              component="div"
-              count={query ? count_search(getDataBySelectedOption()) : getDataBySelectedOption().length}
-              rowsPerPage={rpg}
-              page={pg}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              labelRowsPerPage="Items per page"
-            />
-          </div>
         </div>
+          <Table data={search(getDataBySelectedOption())} selectedOption={selectedOption} />
+        </div>
+      </div>
+      <div className="footer">
+        <div className="footer-left-section">
+              <h1>Explore More Results: </h1>
+        </div>
+        <div class="pagination-container">
+          <TablePagination
+            className="custom-table-pagination"
+            slotProps={{
+              select: {
+                "aria-label": "rows per page",
+              },
+              actions: {
+                showFirstButton: true,
+                showLastButton: true,
+              },
+            }}
+            rowsPerPageOptions={[12, 24, 36]}
+            component="div"
+            count={query ? count_search(getDataBySelectedOption()) : getDataBySelectedOption().length}
+            rowsPerPage={rpg}
+            page={pg}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+            labelRowsPerPage="Items per page"
+          />
         </div>
       </div>
     </div>
