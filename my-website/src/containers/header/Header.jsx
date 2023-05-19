@@ -13,7 +13,7 @@ const Header = () => {
 
         <div className="gpt3__header-content__input">
           <button type="button">
-            <Link to="/Catalogue">Get Started</Link>
+            <Link to="/login">Get Started</Link>
           </button>
         </div>
       </div>

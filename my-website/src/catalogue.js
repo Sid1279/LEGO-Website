@@ -208,6 +208,11 @@ function Catalogue() {
   let keys = ["set_num", "name", "set_img_url"];
   const [pg, setpg] = React.useState(0);
   const [rpg, setrpg] = React.useState(12);
+  const handleLogout = () => {
+		localStorage.removeItem("token");
+    window.location.href = "/home";
+		window.location.reload();
+	};
 
   function getDataBySelectedOption() {
     switch (selectedOption) {
@@ -266,6 +271,9 @@ function Catalogue() {
           <button className="button-85">
             <Link to="/home">Chat</Link>
           </button>
+          <button className="button-85" onClick={handleLogout}>
+					  Logout
+				  </button>
         </div>
         <div className="filter-box">
           <h1>Filter by:</h1>
