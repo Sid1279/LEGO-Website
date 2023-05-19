@@ -47,8 +47,56 @@
     cursor: pointer;
 }
 
-.gpt3__navbar-sign button,
-.gpt3__navbar-menu_container button {
+/* .sign-in{
+    color: #BAFF29;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: capitalize;
+
+    margin: 0 1rem;
+    cursor: pointer;
+} */
+
+/* sign-in button */
+.sign-in,
+.register {
+  background-color: transparent;
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #BAFF29;
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1;
+  padding: 1rem 1rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  margin-right: 20px;
+  transition: all .2s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 0px 2px 1px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.sign-in:hover {
+  background-color: #111465;
+  color: #F1FFE7;
+}
+
+.register:hover {
+    background-color: #BAFF29;
+    color: #111465;
+  }
+
+  
+
+/* .register {
     padding: 0.5rem 1rem;
     color: #1A1B41;
     background: #BAFF29;
@@ -60,7 +108,8 @@
     outline: none;
     cursor: pointer;
     border-radius: 5px;
-}
+} */
+
 
 .gpt3__navbar-menu {
     margin-left: 1rem;

@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run my-website\" \"npm run server\"",
+    "my-website": "cd my-website && npm start",
+    "server": "cd server && npm start"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.22",
+    "react-scripts": "^5.0.1"
+  }
+}
