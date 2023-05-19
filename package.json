@@ -5,7 +5,8 @@
   "scripts": {
     "start": "concurrently \"npm run my-website\" \"npm run server\"",
     "my-website": "cd my-website && npm start",
-    "server": "cd server && npm start"
+    "server": "cd server && npm start",
+    "build": "cd my-website && npm run build"
   },
   "dependencies": {
     "nodemon": "^2.0.22",
