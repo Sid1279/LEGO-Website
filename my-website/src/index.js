@@ -7,6 +7,7 @@ import Catalogue from "./catalogue";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Signup from "./client-components/Singup";
 import Login from "./client-components/Login";
+// import Chat from "./chat"
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -36,6 +37,7 @@ root.render(
         <Route path="/signup" exact element={<Signup />} />
         <Route path="/login" exact element={<Login />} />
         <Route path="/" element= {<App />} />
+        <Route path="/chat" element={<App />} />
       </Routes>
     </Router>
   </React.StrictMode>,

@@ -2,8 +2,32 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
+// import { GoogleLogin } from 'react-google-login';
 
 const Login = () => {
+	// const responseGoogle = async (response) => {
+	// 	try {
+	// 	  const url = 'http://localhost:8080/api/auth/google';
+	// 	  const { data: res } = await axios.post(url, { tokenId: response.tokenId });
+	// 	  localStorage.setItem('token', res.data);
+	// 	  window.location = '/';
+	// 	} catch (error) {
+	// 	  setError('Failed to sign in with Google.');
+	// 	  console.error('Error:', error); // Added debug statement
+	// 	}
+	//   };
+	  
+	// const GoogleSignIn = () => {
+	// return (
+	// 	<GoogleLogin
+	// 	clientId="527254420394-vvcod077lhcabh9gier1mdptgl8e27ue.apps.googleusercontent.com"
+	// 	buttonText="Sign In With Google"
+	// 	onSuccess={responseGoogle}
+	// 	onFailure={responseGoogle}
+	// 	cookiePolicy={'single_host_origin'}
+	// 	/>
+	// );
+	// };
 	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
 
@@ -59,6 +83,7 @@ const Login = () => {
 						<button className={styles.green_btn}>
 							Sign In
 						</button>
+						{/* <GoogleSignIn /> */}
 					</form>
 				</div>
 				<div className={styles.right}>

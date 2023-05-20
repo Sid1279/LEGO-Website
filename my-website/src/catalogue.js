@@ -9,6 +9,7 @@ import TablePagination, {
 } from "@mui/base/TablePagination";
 import { Radio, RadioGroup, FormControlLabel,  Checkbox, FormGroup } from '@mui/material';
 import {Link} from "react-router-dom";
+// import Chat from "./chat";
 
 // import axios from "axios";
 /////////////////////SEARCH ON A DATATABLE
@@ -269,7 +270,7 @@ function Catalogue() {
             <Link to="/home">Home</Link>
           </button>
           <button className="button-85">
-            <Link to="/home">Chat</Link>
+            <Link to="/chat">Chat</Link>
           </button>
           <button className="button-85" onClick={handleLogout}>
 					  Logout
