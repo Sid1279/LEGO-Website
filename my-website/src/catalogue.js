@@ -575,6 +575,7 @@ export default Catalogue;
 ///////////////////// SAVE FILES
 // import { saveAs } from 'file-saver';
 // function App() {
+//   let API_KEY = ***************************;
 //   async function getAllData() {
 //     const minifig_urls = [];
 //     const set_urls = [];
@@ -585,15 +586,15 @@ export default Catalogue;
 //     }
   
 //     for (let i = 1; i <= 13; i++) {
-//       minifig_urls.push(`https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=${i}&page_size=1000`);
+//       minifig_urls.push(`https://rebrickable.com/api/v3/lego/minifigs/?key={API_KEY}&page=${i}&page_size=1000`);
 //       delay(1000);
 //     }
 //     for (let i = 1; i <= 22; i++) {
-//       set_urls.push(`https://rebrickable.com/api/v3/lego/sets/?key=7dd3aa13b924bb746bbad213b865bab5&page=${i}&page_size=1000`);
+//       set_urls.push(`https://rebrickable.com/api/v3/lego/sets/?key={API_KEY}&page=${i}&page_size=1000`);
 //       delay(1000);
 //     }
 //     for (let i = 1; i <= 51; i++) {
-//       part_urls.push(`https://rebrickable.com/api/v3/lego/parts/?key=7dd3aa13b924bb746bbad213b865bab5&page=${i}&page_size=1000`);
+//       part_urls.push(`https://rebrickable.com/api/v3/lego/parts/?key={API_KEY}&page=${i}&page_size=1000`);
 //       delay(1000);
 //     }
 
@@ -662,9 +663,9 @@ export default Catalogue;
 // function App() {
 //   async function getData() {
 //     const urls = [
-//       "https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=1&page_size=1000",
-//       "https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=2&page_size=1000",
-//       "https://rebrickable.com/api/v3/lego/minifigs/?key=7dd3aa13b924bb746bbad213b865bab5&page=3&page_size=1000"
+//       `https://rebrickable.com/api/v3/lego/minifigs/?key={API_KEY}&page=1&page_size=1000`,
+//       `https://rebrickable.com/api/v3/lego/minifigs/?key={API_KEY}&page=2&page_size=1000`,
+//       `https://rebrickable.com/api/v3/lego/minifigs/?key={API_KEY}&page=3&page_size=1000`
 //     ];
   
 //     let dataArr = [];
