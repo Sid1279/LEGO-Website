@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/LEGO-Website/static/css/main.5119adc6.css",
-    "main.js": "/LEGO-Website/static/js/main.42753a17.js",
+    "main.js": "/LEGO-Website/static/js/main.6c1bcb38.js",
     "static/media/NoImg.jpg": "/LEGO-Website/static/media/NoImg.dd4396df3d4ae5c4fcdb.jpg",
     "index.html": "/LEGO-Website/index.html",
     "main.5119adc6.css.map": "/LEGO-Website/static/css/main.5119adc6.css.map",
-    "main.42753a17.js.map": "/LEGO-Website/static/js/main.42753a17.js.map"
+    "main.6c1bcb38.js.map": "/LEGO-Website/static/js/main.6c1bcb38.js.map"
   },
   "entrypoints": [
     "static/css/main.5119adc6.css",
-    "static/js/main.42753a17.js"
+    "static/js/main.6c1bcb38.js"
   ]
 }
