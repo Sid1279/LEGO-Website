@@ -8,7 +8,8 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "my-website": "cd my-website && npm start",
-    "server": "cd server && npm start"
+    "server": "cd server && npm start",
+    "build": "cd my-website && npm run build"
   },
   "dependencies": {
     "nodemon": "^2.0.22",
