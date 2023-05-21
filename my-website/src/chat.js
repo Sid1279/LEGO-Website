@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
-import './App.css';
+import './chat.css';
+import {Link} from 'react-router-dom';
 
 //import firebase from 'firebase/app';
 //import 'firebase/firestore';
@@ -28,12 +29,13 @@ const firestore = firebase.firestore();
 //const analytics = firebase.analytics();
 
 
-function App() {
+function Chat() {
 
   const [user] = useAuthState(auth);
 
   return (
-    <div className="App">
+    <div className="container">
+    <div className="chat">
       <header className='header'>
         <div className='logo'>
           <h1>Chat</h1>
@@ -46,6 +48,7 @@ function App() {
       </section>
 
     </div>
+    </div>
   );
 }
 
@@ -57,10 +60,14 @@ function SignIn() {
   }
 
   return (
-    <div className='content'>
+    <div className='chat-content'>
       <h1>Welcome to Benzene Chat!</h1>
       <br></br>
-      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button> 
+      <button className="chat-sign-in" onClick={signInWithGoogle}>Sign in with Google</button> 
+      <br></br>
+      <Link to = "/home">
+      <button className="chat-sign-in">Home</button> 
+      </Link>
     </div>
   )
 
@@ -68,7 +75,7 @@ function SignIn() {
 
 function SignOut() {
   return auth.currentUser && (
-    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+    <button className="chat-sign-out" onClick={() => auth.signOut()}>Sign Out</button>
   )
 }
 
@@ -110,11 +117,11 @@ function ChatRoom() {
     </main>
 
     <div className='form-fr'>
-    <form onSubmit={sendMessage}>
+    <form className = "chat-form" onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Type here..." />
+      <input className = "chat-input" value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Type here..." />
 
-      <button type="submit" disabled={!formValue}>{">"}</button>
+      <button className = "chat-button" type="submit" disabled={!formValue}>{">"}</button>
 
     </form>
     </div>
@@ -130,11 +137,11 @@ function ChatMessage(props) {
 
   return (<>
     <div className={`message ${messageClass}`}>
-      <img src={photoURL} />
-      <p>{text}</p>
+      <img className = "chat-img" src={photoURL} />
+      <p className = "chat-p">{text}</p>
     </div>
   </>)
 }
 
 
-export default App;
+export default Chat;

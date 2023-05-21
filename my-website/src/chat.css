@@ -70,22 +70,22 @@ form button {
   background-color: rgb(56, 56, 143);
 } */
 
-body {
+.container {
   background-color: #6290C3;
   font-family: Arial, sans-serif;
   margin: 0;
 }
 
-.App {
+.chat {
   text-align: center;
-  max-width: 728px;
+  max-width: 740px;
   margin: 0 auto;
   border-left: 10px solid #1A1B41;
   border-right: 10px solid #1A1B41;
   border-bottom: 10px solid #1A1B41;
 }
 
-.App header {
+.chat header {
   background-color: #1A1B41;
   height: 20%;
   min-height: 50px;
@@ -100,9 +100,11 @@ body {
   z-index: 99;
   padding: 10px;
   box-sizing: border-box;
+  margin-top: 0;
+  margin-left: 0;
 }
 
-.App section {
+.chat section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -122,9 +124,9 @@ body {
 
 main {
   padding: 10px;
-  margin-top: 7.8vh;
+  margin-top: 10vh;
   margin-bottom: 8vh;
-  height: 80vh;
+  height: 82vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -143,7 +145,7 @@ main::-webkit-scrollbar-thumb {
   background: #BAFF29;
 }
 
-form {
+.chat-form {
   height: 10vh;
   position: fixed;
   bottom: 0;
@@ -156,7 +158,7 @@ form {
   border-right: 10px solid #1A1B41;
 }
 
-form button {
+.chat-button {
   width: 20%;
   background-color: #BAFF29;
   font-size: 40px;
@@ -166,7 +168,7 @@ form button {
   border-left: 10px solid #1A1B41;
 }
 
-input {
+.chat-input {
   line-height: 1.5;
   width: 100%;
   font-size: 1.5rem;
@@ -177,7 +179,7 @@ input {
   padding: 0 10px;
 }
 
-button:disabled {
+.chat-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   background: #1A1B41;
@@ -186,7 +188,7 @@ button:disabled {
 
 
 /* sign in button */
-.sign-in, .sign-out {
+.chat-sign-in, .chat-sign-out {
   color: #1A1B41;
   background: #BAFF29;
   max-width: 400px;
@@ -205,22 +207,24 @@ button:disabled {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+
+  margin-top: 20px;
 }
 
-.sign-out {
+.chat-sign-out {
   color: #BAFF29;
   background: #1A1B41;
   margin-left: 60%;
 }
 
-.sign-in:active, .sign-out:active {
+.chat-sign-in:active, .chat-sign-out:active {
   box-shadow: 0px 0px 0px 0px;
   top: 5px;
   left: 5px;
 }
 
 @media (min-width: 768px) {
-  .sign-in, .sign-out {
+  .chat-sign-in, .chat-sign-out {
     padding: 0.25em 0.75em;
   }
 }
@@ -231,7 +235,7 @@ ul, li {
   list-style: none;
 }
 
-p {
+.chat-p {
   max-width: 500px;
   margin-bottom: 12px;
   line-height: 24px;
@@ -243,7 +247,7 @@ p {
   margin-left: 100px;
 }
 
-.content h1 {
+.chat-content h1 {
   font-weight: 800;
   font-size: 40px;
   letter-spacing: -0.04em; 
@@ -271,7 +275,7 @@ p {
   color: #1A1B41;
 }
 
-img {
+.chat-img {
   width: 40px;
   height: 40px;
   border-radius: 50%;

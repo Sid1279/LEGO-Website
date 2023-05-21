@@ -7,7 +7,7 @@ import Catalogue from "./catalogue";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Signup from "./client-components/Singup";
 import Login from "./client-components/Login";
-// import Chat from "./chat"
+import Chat from "./chat"
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -30,14 +30,14 @@ root.render(
     <Router>
       <Routes>
         <Route path="/home" element={<App />} />
+        <Route path="/" element= {<App />} />
         <Route path="/Catalogue" element={<Catalogue />} />
         {user && <Route path="/" exact element={<Catalogue />} />}
         {user && <Route path="login" exact element={<Catalogue />} />}
         {user && <Route path="signup" exact element={<Catalogue />} />}
         <Route path="/signup" exact element={<Signup />} />
         <Route path="/login" exact element={<Login />} />
-        <Route path="/" element= {<App />} />
-        <Route path="/chat" element={<App />} />
+        <Route path="/chat" element={<Chat />} />
       </Routes>
     </Router>
   </React.StrictMode>,
