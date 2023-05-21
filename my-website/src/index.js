@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
 import Catalogue from "./catalogue";
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Signup from "./client-components/Singup";
 import Login from "./client-components/Login";
 import Chat from "./chat"
@@ -32,9 +32,9 @@ root.render(
         <Route path="/home" element={<App />} />
         <Route path="/" element= {<App />} />
         <Route path="/Catalogue" element={<Catalogue />} />
-        {user && <Route path="/" exact element={<Navigate to="/Catalogue" />} />}
-        {user && <Route path="login" exact element={<Navigate to="/Catalogue" />} />}
-        {user && <Route path="signup" exact element={<Navigate to="/Catalogue" />}/>}
+        {user && <Route path="/" exact element={<Catalogue />} />}
+        {user && <Route path="login" exact element={<Catalogue />} />}
+        {user && <Route path="signup" exact element={<Catalogue />} />}
         <Route path="/signup" exact element={<Signup />} />
         <Route path="/login" exact element={<Login />} />
         <Route path="/chat" element={<Chat />} />
