@@ -1,7 +1,8 @@
 {
   "homepage": "http://Sid1279.github.io/LEGO-Website",
   "devDependencies": {
-    "concurrently": "^8.0.1"
+    "concurrently": "^8.0.1",
+    "gh-pages": "^5.0.0"
   },
   "scripts": {
     "start": "concurrently \"npm run my-website\" \"npm run server\"",
