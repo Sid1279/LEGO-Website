@@ -8,7 +8,7 @@ import TablePagination, {
   tablePaginationClasses as classes,
 } from "@mui/base/TablePagination";
 import { Radio, RadioGroup, FormControlLabel,  Checkbox, FormGroup } from '@mui/material';
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 // import Chat from "./chat";
 
 // import axios from "axios";
@@ -267,10 +267,12 @@ function Catalogue() {
         <div className="header-left-section">
           <h1>Dragonbricks Catalogue</h1>
           <button className="button-85">
-            <Link to="/home">Home</Link>
+            {/* <Link to="/home">Home</Link> */}
+            Home
           </button>
           <button className="button-85">
-            <Link to="/chat">Chat</Link>
+            {/* <Link to="/chat">Chat</Link> */}
+            Chat
           </button>
           <button className="button-85" onClick={handleLogout}>
 					  Logout
