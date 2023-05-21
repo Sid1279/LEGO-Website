@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { minifigs } from "./minifigs";
 import { parts } from "./parts";
 import { sets } from "./sets";
@@ -204,6 +204,9 @@ import { Radio, RadioGroup, FormControlLabel,  Checkbox, FormGroup } from '@mui/
 // );
 // }
 function Catalogue() {
+  useEffect(() => {
+    document.title = "Dragonbricks"
+  }, []);
   const [query, setQuery] = useState("");
   const [selectedOption, setSelectedOption] = useState("minifigs"); // Default to searching minifigs
   let keys = ["set_num", "name", "set_img_url"];
