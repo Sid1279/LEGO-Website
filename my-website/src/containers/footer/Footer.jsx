@@ -3,6 +3,7 @@ import "./footer.css"
 import gpt3Logo from '../../assets/logo.svg'
 import {Link} from "react-router-dom"
 
+const user = localStorage.getItem("token");
 const 
 Footer = () => {
   return(
@@ -12,9 +13,15 @@ Footer = () => {
       </div>
 
       <div className="gpt3__footer-btn">
-        <Link to="/signup">
-        <button className = "button-89">Register Now!</button>
+        {user ? (
+        <Link to="/Catalogue">
+          <button className = "button-89">Catalogue</button>
         </Link>
+        ):
+        (
+        <Link to="/signup">
+          <button className = "button-89">Register Now!</button>
+        </Link>)}
       </div>
 
       {/* <div className="gpt3__footer-links">

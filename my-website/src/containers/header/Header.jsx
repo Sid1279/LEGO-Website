@@ -4,6 +4,7 @@ import "./header.css";
 import { Link } from "react-router-dom";
 import dragon from "../../assets/dragon.png";
 
+const user = localStorage.getItem("token");
 const Header = () => {
   return (
     <div className="gpt3__header section__padding" id="home">
@@ -12,9 +13,15 @@ const Header = () => {
         <p>Find your community of LEGO lovers!</p>
 
         <div className="gpt3__header-content__input">
+        {user ? (
+        <button type="button">
+          <Link to="/login">Get Started</Link>
+        </button>
+        ):
+        (
           <button type="button">
-            <Link to="/login">Get Started</Link>
-          </button>
+            <Link to="/Catalogue">Get Started</Link>
+          </button>)};
         </div>
       </div>
       <div className="gpt3__header-image">

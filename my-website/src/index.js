@@ -32,9 +32,9 @@ root.render(
         <Route path="/home" element={<App />} />
         <Route path="/" element= {<App />} />
         <Route path="/Catalogue" element={<Catalogue />} />
-        {/* {user && <Route path="/" exact element={<Catalogue />} />} */}
-        {user && <Route path="login" exact element={<Catalogue />} />}
-        {user && <Route path="signup" exact element={<Catalogue />} />}
+        {user && <Route path="/" exact element={<Catalogue />} />}
+        {user && <Route path="/login" exact element={<Catalogue />} />}
+        {user && <Route path="/signup" exact element={<Catalogue />} />}
         <Route path="/signup" exact element={<Signup />} />
         <Route path="/login" exact element={<Login />} />
         <Route path="/chat" element={<Chat />} />

@@ -27,23 +27,26 @@ const Navbar = () => {
         </div>
       </div>
       <div className = "gpt3__navbar-sign">
-        <button className = "sign-in">
-          <Link to="/login">
-            Sign in
-          </Link>
-        </button>
-        <button className="register">
-          <Link to="/signup">
-            Register
-          </Link>
-        </button>
         {user ? (
         <button className="sign-in">
           <Link to="/Catalogue">
             Catalogue
           </Link>
         </button>
-        ):<></>};
+        ):
+        (
+          <div>
+          <button className = "sign-in">
+            <Link to="/login">
+              Sign in
+            </Link>
+          </button>
+          <button className="register">
+            <Link to="/signup">
+              Register
+            </Link>
+          </button>
+          </div>)}
       </div>
       <div className = "gpt3__navbar-menu">
         {toggleMenu
