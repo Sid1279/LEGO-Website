@@ -21,7 +21,7 @@ const Header = () => {
         (
           <button type="button">
             <Link to="/Catalogue">Get Started</Link>
-          </button>)};
+          </button>)}
         </div>
       </div>
       <div className="gpt3__header-image">
