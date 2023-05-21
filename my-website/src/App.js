@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 
 const App = () => {
   useEffect(() => {
-    document.title = "GPT3"
+    document.title = "Dragonbricks"
   }, []);
 
   const location = useLocation();
