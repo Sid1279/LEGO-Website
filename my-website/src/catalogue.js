@@ -212,7 +212,6 @@ function Catalogue() {
   const handleLogout = () => {
 		localStorage.removeItem("token");
     window.location.href = "/home";
-		window.location.reload();
 	};
 
   function getDataBySelectedOption() {

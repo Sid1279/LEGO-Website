@@ -13,7 +13,7 @@ const Menu = () => (
   </>
 )
 
-
+const user = localStorage.getItem("token");
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   return (
@@ -37,6 +37,13 @@ const Navbar = () => {
             Register
           </Link>
         </button>
+        {user ? (
+        <button className="sign-in">
+          <Link to="/Catalogue">
+            Catalogue
+          </Link>
+        </button>
+        ):<></>};
       </div>
       <div className = "gpt3__navbar-menu">
         {toggleMenu
