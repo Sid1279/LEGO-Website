@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/LEGO-Website/static/css/main.853053dc.css",
+    "main.js": "/LEGO-Website/static/js/main.e9fa563d.js",
+    "static/media/dragon.png": "/LEGO-Website/static/media/dragon.83a122a5c8ca43363542.png",
+    "static/media/kids.png": "/LEGO-Website/static/media/kids.f789cfbcce9e37cda06c.png",
+    "static/media/lego.png": "/LEGO-Website/static/media/lego.37bbcf0a2fa872de1318.png",
+    "static/media/Adults.jpeg": "/LEGO-Website/static/media/Adults.8955ed0ecdac352d411f.jpeg",
+    "static/media/biggest.jpg": "/LEGO-Website/static/media/biggest.6a1c40257e7541404ea7.jpg",
+    "static/media/first-minifig.jpg": "/LEGO-Website/static/media/first-minifig.a44413690ef346af5cb7.jpg",
+    "static/media/first-set.jpg": "/LEGO-Website/static/media/first-set.65ff282dff487bc0828d.jpg",
+    "static/media/logo.png": "/LEGO-Website/static/media/logo.83647683b65ddf3032ae.png",
+    "static/media/NoImg.jpg": "/LEGO-Website/static/media/NoImg.dd4396df3d4ae5c4fcdb.jpg",
+    "static/media/ninjago.png": "/LEGO-Website/static/media/ninjago.04a64888c5728a676b50.png",
+    "static/media/possibility.png": "/LEGO-Website/static/media/possibility.d608ca8c049144317c02.png",
+    "static/media/rebrickable.png": "/LEGO-Website/static/media/rebrickable.12b36d33b0a0325ca5c3.png",
+    "static/media/mindstorms.png": "/LEGO-Website/static/media/mindstorms.7dc859882d001cd2fb82.png",
+    "static/media/bricklink.png": "/LEGO-Website/static/media/bricklink.691fcdf01155b0f99549.png",
+    "static/media/logo.svg": "/LEGO-Website/static/media/logo.68b95bb1783b8a34157a8b6b3ebb94c0.svg",
+    "index.html": "/LEGO-Website/index.html",
+    "main.853053dc.css.map": "/LEGO-Website/static/css/main.853053dc.css.map",
+    "main.e9fa563d.js.map": "/LEGO-Website/static/js/main.e9fa563d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.853053dc.css",
+    "static/js/main.e9fa563d.js"
+  ]
+}
