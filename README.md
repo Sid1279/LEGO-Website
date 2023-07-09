@@ -33,4 +33,4 @@ To run the Dragonbricks LEGO Catalogue application locally, follow these steps:
 - Run the application using `npm start`.
 
 Link to Demo Video
-![Demo Video](https://github.com/Sid1279/LEGO-Website/blob/main/Dragonbricks%20demo.mp4)
+[Demo Video](https://github.com/Sid1279/LEGO-Website/blob/main/Dragonbricks%20demo.mp4)
