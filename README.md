@@ -32,5 +32,5 @@ To run the Dragonbricks LEGO Catalogue application locally, follow these steps:
 - Replace the API key in the catalogue.js file with your own Rebrickable API key.
 - Run the application using `npm start`.
 
-Link to Demo Video
+## Link to Demo Video
 [Demo Video](https://github.com/Sid1279/LEGO-Website/blob/main/Dragonbricks%20demo.mp4)
